@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('workouts', function (Blueprint $table) {
             $table->id();
-            $table->string('exercise');
-            $table->string('muscleGroup');
+            $table->string('name');
+            $table->string('category');
             $table->timestamps();
         });
     }

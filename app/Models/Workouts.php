@@ -11,7 +11,6 @@ class Workouts extends Model
 
     protected $fillable = [
         'name',
-        'desctiption',
-        'exercice',
+        'category',
     ];
 }

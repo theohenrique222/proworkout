@@ -9,11 +9,13 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextInputColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
 
 class WorkoutsResource extends Resource
 {
@@ -25,13 +27,13 @@ class WorkoutsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('exercise')
+                TextInput::make('name')
                     ->required(),
-                Select::make('muscleGroup')
+                Select::make('category')
                     ->options([
-                        'breastplate' => 'breastplate',
-                        'back' => 'back',
-                        'arms' => 'arms',
+                        'Force' => 'Force',
+                        'Resistance' => 'Resistance',
+                        'Functional' => 'Functional',
                     ])
                     ->required()
             ]);
@@ -41,7 +43,8 @@ class WorkoutsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('category'),
             ])
             ->filters([
                 //
