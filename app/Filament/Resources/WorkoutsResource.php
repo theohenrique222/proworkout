@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 
 class WorkoutsResource extends Resource
 {
@@ -23,7 +25,15 @@ class WorkoutsResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('exercise')
+                    ->required(),
+                Select::make('muscleGroup')
+                    ->options([
+                        'breastplate' => 'breastplate',
+                        'back' => 'back',
+                        'arms' => 'arms',
+                    ])
+                    ->required()
             ]);
     }
 

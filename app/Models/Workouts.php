@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Workouts extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'desctiption',
+        'exercice',
+    ];
 }
