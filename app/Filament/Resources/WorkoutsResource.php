@@ -3,8 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\WorkoutsResource\Pages;
-use App\Filament\Resources\WorkoutsResource\RelationManagers;
-use App\Models\Workouts;
+use App\Models\Workout;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -19,7 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 
 class WorkoutsResource extends Resource
 {
-    protected static ?string $model = Workouts::class;
+    protected static ?string $model = Workout::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -36,6 +35,7 @@ class WorkoutsResource extends Resource
                         'Functional' => 'Functional',
                     ])
                     ->required()
+                        
             ]);
     }
 
@@ -45,6 +45,10 @@ class WorkoutsResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('category'),
+                TextColumn::make('created_at')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('updated_at')
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //
